@@ -1,0 +1,17 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "paths": {
+      "@shared/*": ["./src/modules/shared/*"],
+      "@auth/*": ["./src/modules/auth/*"],
+      "@business/*": ["./src/modules/business/*"],
+      "@care/*": ["./src/modules/care/*"],
+      "@contact/*": ["./src/modules/contact/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/modules/shared/components/*"],
+      "@layouts/*": ["./src/modules/shared/layouts/*"],
+      "@assets/*": ["./src/assets/*"]
+    }
+  }
+}
