@@ -11,7 +11,8 @@
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/modules/shared/components/*"],
       "@layouts/*": ["./src/modules/shared/layouts/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@maintenance/*": ["./src/modules/maintenance/*"]
     }
   }
 }

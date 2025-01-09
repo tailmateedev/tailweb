@@ -1,21 +1,31 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import LayoutMaintenance from '@layouts/LayoutMaintenance.astro';
 import MainSection from '@care/components/main/MainSection.astro';
 import FunctionSection from '@care/components/functionalities/FunctionSection.vue'
 import BenefitsSection from '@care/components/benefits/BenefitsSection.vue'
 import FAQSection from '@care/components/faq/FAQSection.vue'
+import Maintenance from './maintenance.astro';
 import '../modules/shared/style/main.css'
 
 ---
 
-<Layout title="Tailmatee">
-	<MainSection/>
+<!-- Este es el layout de mantenimiento -->
+
+<LayoutMaintenance title="Tailmatee">
+	<Maintenance />
+</LayoutMaintenance>
+
+<!-- Este es el layout principal -->
+
+<!--Layout title="Tailmatee"-->
+
+	<!--MainSection/>
 	<FunctionSection />
 	<BenefitsSection client:load/>
-	<FAQSection client:load />
-
+	<FAQSection client:load /-->
 	<!-- <Hearo /> -->
 	<!-- <Main /> -->
 	<!-- <SectionFunctions client:load /> -->
 	<!-- <Commitment /> -->
-</Layout>
+<!--/Layout-->

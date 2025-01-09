@@ -21,6 +21,7 @@ export default defineConfig({
         '@contact': '/src/modules/contact',
         '@pages': '/src/pages',
         '@assets': '/src/assets',
+        '@maintenance': '/src/modules/maintenance',
       },
     },
   },
