@@ -20,7 +20,7 @@ export default {
       :href="url"
       target="_blank"
       rel="noopener noreferrer"
-      class="w-16 h-16 rounded-full bg-[#11113A] text-white text-lg flex items-center justify-center hover:bg-[#0f0f2a] focus:outline-none sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 mx-2"
+      class="rounded-full bg-[#11113A] text-white text-lg flex items-center justify-center hover:bg-[#0f0f2a] focus:outline-none w-auto h-auto p-1 mx-2"
     >
       <span v-html="icon" class="text-center"></span>
     </a>
