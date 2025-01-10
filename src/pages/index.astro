@@ -7,22 +7,22 @@ import BenefitsSection from '@care/components/benefits/BenefitsSection.vue'
 import FAQSection from '@care/components/faq/FAQSection.vue'
 import '../modules/shared/style/main.css'
 
+const isMaintenance = true;
+
 ---
 
-<!-- Este es el layout de mantenimiento -->
+{isMaintenance ? (<LayoutMaintenance title="Tailmatee"/>):(
 
-<LayoutMaintenance title="Tailmatee"/>
+	<Layout title="Tailmatee">
 
-<!-- Este es el layout principal -->
-
-<!--Layout title="Tailmatee"-->
-
-	<!--MainSection/>
+	<MainSection/>
 	<FunctionSection />
 	<BenefitsSection client:load/>
-	<FAQSection client:load /-->
-	<!-- <Hearo /> -->
-	<!-- <Main /> -->
-	<!-- <SectionFunctions client:load /> -->
-	<!-- <Commitment /> -->
-<!--/Layout-->
+	<FAQSection client:load />
+		<!-- <Hearo /> -->
+		<!-- <Main /> -->
+		<!-- <SectionFunctions client:load /> -->
+		<!-- <Commitment /> -->
+	</Layout>
+
+)}
