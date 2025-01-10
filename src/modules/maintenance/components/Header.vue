@@ -2,8 +2,8 @@
   <section class="flex items-center justify-center text-xl">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 -60 700 450"
-      class="w-[140px] h-[76px] fill-current text-blue-900"
+      viewBox="0 30 800 230"
+      class="w-1/5 h-1/5 fill-current text-blue-900"
       preserveAspectRatio="xMidYMid meet"
     >
       <rect

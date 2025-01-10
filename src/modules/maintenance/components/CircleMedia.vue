@@ -15,12 +15,12 @@ export default {
 </script>
 
 <template>
-  <div class="flex justify-center items-center space-x-4 mt-4">
+  <div>
     <a
       :href="url"
       target="_blank"
       rel="noopener noreferrer"
-      class="rounded-full bg-[#11113A] text-white text-lg flex items-center justify-center hover:bg-[#0f0f2a] focus:outline-none w-auto h-auto p-1 mx-2"
+      class="rounded-full bg-[#11113A] text-white text-lg flex items-center justify-center hover:bg-[#0f0f2a] focus:outline-none p-1 mx-2"
     >
       <span v-html="icon" class="text-center"></span>
     </a>
