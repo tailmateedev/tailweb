@@ -7,7 +7,7 @@
       </div>
 
       <div class="mt-8">
-        <div class="space-y-5 w-full columns-5 max-sm:columns-1 max-md:columns-1 max-lg:columns-2 max-xl:columns-3 max-2xl:columns-3">
+        <div class="space-y-5 w-full columns-4 max-sm:columns-1 max-md:columns-1 max-lg:columns-2 max-xl:columns-3 max-2xl:columns-3">
           <div v-for="(item, index) in faqItems" :key="index" class="bg-white shadow-sm rounded-lg overflow-hidden">
             <button
               class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-300"

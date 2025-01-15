@@ -1,16 +1,16 @@
 <template>
   <section id="faq" class="bg-gray-50 py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl max-w-full px-4 sm:px-6 lg:px-8 w-full">
       <div class="text-center">
         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">FAQ</h2>
         <p class="mt-4 text-lg text-gray-600">Preguntas frecuentes</p>
       </div>
 
       <div class="mt-12">
-        <div class="space-y-6">
-          <div v-for="(item, index) in faqItems" :key="index" class="bg-white shadow-sm rounded-lg">
+        <div class="space-y-5 w-full columns-5 max-sm:columns-1 max-md:columns-1 max-lg:columns-2 max-xl:columns-3 max-2xl:columns-3">
+          <div v-for="(item, index) in faqItems" :key="index" class="bg-white shadow-sm rounded-lg overflow-hidden">
             <button
-              class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium text-gray-900 hover:bg-gray-100 focus:outline-none"
+              class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-300"
               @click="toggleFAQ(index)">
               <h4>{{ item.question }}</h4>
               <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg"
