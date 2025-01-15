@@ -7,7 +7,7 @@ import BenefitsSection from '@care/components/benefits/BenefitsSection.vue'
 import FAQSection from '@care/components/faq/FAQSection.vue'
 import '../modules/shared/style/main.css'
 
-const isMaintenance = true;
+const isMaintenance = false;
 
 ---
 
@@ -16,7 +16,7 @@ const isMaintenance = true;
 	<Layout title="Tailmatee">
 
 	<MainSection/>
-	<FunctionSection />
+	<FunctionSection client:load />
 	<BenefitsSection client:load/>
 	<FAQSection client:load />
 		<!-- <Hearo /> -->

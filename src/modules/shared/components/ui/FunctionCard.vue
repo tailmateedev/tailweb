@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <img :src="image" alt="Function Image" class="rounded-md mb-4" />
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl h-full max-w-sm" v-show="isVisible" >
+      <img :src="image" alt="Function Image" class="rounded w-full" />
       <h2 class="text-xl font-semibold text-white mb-2">{{ title }}</h2>
-      <p class="text-gray-400 mb-4">
+      <p class="text-gray-400 w-full h-full">
         {{ description }}
       </p>
     </div>
@@ -29,6 +29,11 @@
         required: false,
         default: "#",
       },
+      isVisible: {
+        type: Boolean,
+        required: true,
+        default: true,
+      }
     },
   };
 </script>
