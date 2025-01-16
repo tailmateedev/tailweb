@@ -1,9 +1,9 @@
 <template>
-  <section id="faq" class="bg-gray-50 py-16">
+  <section id="faq" class="bg-[#11113A] py-16">
     <div class="max-w-4xl max-w-full px-4 sm:px-6 lg:px-8 w-full">
       <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">FAQ</h2>
-        <p class="mt-4 text-lg text-gray-600">Preguntas frecuentes</p>
+        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">FAQ</h2>
+        <p class="mt-4 text-lg text-white">Preguntas frecuentes</p>
       </div>
 
       <div class="mt-12">

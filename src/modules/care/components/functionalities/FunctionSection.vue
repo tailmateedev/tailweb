@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-gray-900 py-16 flex flex-col items-center gap-5 h-full">
-    <h1 class="text-4xl font-bold text-white">Funciones</h1>
+  <section class="py-16 flex flex-col items-center gap-5 content-center">
+    <h1 class="text-4xl font-bold text-black content-center">¿Cómo funciona?</h1>
     <div class="gap-9 max-w-4xl px-4">
       <template v-for="(card, index) in cards" :key="index" :image="card.image" :title="card.title"
         :description="card.description" :link="card.link">
@@ -68,7 +68,7 @@ export default {
     changeCard() {
       this.intervalId = setInterval(() => {
         this.next();
-      }, 5000);
+      }, 7500);
     },
     stopChangeCard() {
       clearInterval(this.intervalId);
@@ -79,39 +79,28 @@ export default {
     const cards = [
       {
         image: "https://via.placeholder.com/300x200",
-        title: "Asistente Virtual con IA",
-        description:
-          "Interactúa con un bot inteligente que entiende y responde a tus necesidades.",
+        title: "Paso 1",
+        description: "Envía un mensaje a nuestro número de WhatsApp.",
         link: "#"
       },
       {
         image: "https://via.placeholder.com/300x200",
-        title: "Consulta Horarios en Tiempo Real",
-        description:
-          "Gracias a la IA, obtén información actualizada al instante.",
+        title: "Paso 2",
+        description: "Consulta horarios y agenda tu cita de manera sencilla.",
         link: "#"
       },
       {
         image: "https://via.placeholder.com/300x200",
-        title: "Agenda Citas de Manera Inteligente",
-        description:
-          "La IA sugiere horarios óptimos basados en tus preferencias y disponibilidad.",
+        title: "Paso 3",
+        description: "Recibe confirmación y recordatorios automáticos.",
         link: "#",
       },
       {
         image: "https://via.placeholder.com/300x200",
-        title: "Respuestas Personalizadas",
-        description:
-          "La IA aprende de tus interacciones para ofrecerte una experiencia cada vez más personalizada.",
+        title: "Paso 4",
+        description: "Recibe confirmación y recordatorios automáticos.",
         link: "#",
       },
-      {
-        image: "https://via.placeholder.com/300x200",
-        title: "Historial de Consultas",
-        description:
-          "Accede a un registro detallado de tus consultas y recomendaciones.",
-        link: "#",
-      }
     ];
     return {
       cards,
