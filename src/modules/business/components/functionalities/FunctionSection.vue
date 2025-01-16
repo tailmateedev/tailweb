@@ -8,17 +8,18 @@
     <div class="flex flex-col md:flex-row items-start gap-16 max-w-7xl w-full">
       <div class="flex-1 space-y-6">
         <div v-for="(step, index) in steps" :key="index"
-          class="bg-gray-800 shadow-md p-6 rounded-lg opacity-0 transition duration-1000 ease-out"
-          :style="{ transitionDelay: `${(index + 1) * 0.5}s` }" :class="{ 'opacity-100 translate-x-0': isVisible }">
-          <h2 class="text-lg font-semibold text-white">{{ step.title }}</h2>
-          <p class="text-gray-300">{{ step.description }}</p>
+          class="bg-gray-800 shadow-md p-6 rounded-lg opacity-0 transition duration-1000 ease-out cursor-pointer"
+          :style="{ transitionDelay: `${0.1}s` }" :class="{ 'opacity-100 translate-x-0': isVisible , 'bg-green-500':  index == idStep }"
+          @click.prevent="select" :id="index">
+            <h2 class="text-lg font-semibold text-white" :id="index">{{ step.title }}</h2>
+            <p class="text-gray-300" :id="index">{{ step.description }}</p>
         </div>
       </div>
 
       <div class="flex-1 opacity-0 translate-y-10 transition duration-1000 ease-out"
         :class="{ 'opacity-100 translate-y-0': isVisible }"
-        :style="{ transitionDelay: `${(steps.length + 1) * 0.5}s` }">
-        <img src="https://via.placeholder.com/600x400" alt="Illustration" class="rounded-lg shadow-lg w-full" />
+        :style="{ transitionDelay: `${ 0.3}s` }">
+        <img :src="steps[idStep].img" alt="Illustration" class="rounded-lg shadow-lg w-full" />
       </div>
     </div>
   </section>
@@ -29,9 +30,37 @@ import { ref, onMounted } from "vue";
 
 export default {
   name: "HowItWorksSection",
+  mounted() {
+    this.changeStep();
+  },
+  methods:{
+    select(event){
+      this.stopInterval();
+      this.isActive = true;
+      this.idStep = event.target.id;
+    },
+    next() {
+      this.idStep++;
+      if (this.idStep > this.steps.length - 1) {
+        this.idStep = 0;
+      }
+    },
+    changeStep(){
+      this.interval = setInterval(() => {
+        this.next();
+      }, 5000);
+    },
+    stopInterval(){
+      clearInterval(this.interval);
+      this.isActive = false;
+      this.changeStep();
+    }
+  },
   setup() {
     const section = ref(null);
     const isVisible = ref(false);
+    const isActive = ref(false);
+    const idStep = ref(0);
 
     onMounted(() => {
       const observer = new IntersectionObserver(
@@ -51,18 +80,22 @@ export default {
       {
         title: "Paso 1",
         description: "Envía un mensaje a nuestro número de WhatsApp.",
+        img: "https://picsum.photos/id/230/600/300",
       },
       {
         title: "Paso 2",
         description: "Consulta horarios y agenda tu cita.",
+        img: "https://picsum.photos/id/231/600/300",
       },
       {
         title: "Paso 3",
         description: "Recibe confirmación y recordatorios automáticos.",
+        img: "https://picsum.photos/id/232/600/300",
       },
       {
         title: "Paso 4",
         description: "Recibe confirmación y recordatorios automáticos.",
+        img: "https://picsum.photos/id/233/600/300",
       },
     ];
 
@@ -70,6 +103,9 @@ export default {
       section,
       isVisible,
       steps,
+      idStep,
+      interval:null,
+      isActive
     };
   },
 };

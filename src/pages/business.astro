@@ -1,9 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import FAQBusiness from '@business/components/faq/FAQBusiness.vue'
+import FunctionSection from '@business/components/functionalities/FunctionSection.vue'
 import '../modules/shared/style/main.css'
 ---
 
 <Layout title="Business">
+    <FunctionSection client:load/>
     <FAQBusiness client:load/>
 </Layout>
