@@ -1,7 +1,9 @@
 ---
-import '../style/main.css';
+import { ViewTransitions } from 'astro:transitions';
 import CircleMedia from '@maintenance/components/CircleMedia.vue';
 import Header from '@maintenance/components/Header.vue';
+import '../style/view-transition.css'
+import '../style/main.css';
 
 interface Props {
 	title: string;
@@ -19,6 +21,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/tailmatee-newLogo.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions/>
 	</head>
 	<body class="bg-gray-100 h-screen w-full overflow-hidden flex flex-col">
 		<header class="w-full h-auto">
