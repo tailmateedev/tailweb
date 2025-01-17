@@ -1,11 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import FAQBusiness from '@business/components/faq/FAQBusiness.vue'
-import FunctionSection from '@business/components/functionalities/FunctionSection.vue'
+import FunctionSection from '@care/components/functionalities/FunctionSection.vue'
+import ContactUs from "../modules/shared/components/ui/ContactUs.vue"
 import '../modules/shared/style/main.css'
 ---
 
 <Layout title="Business">
     <FunctionSection client:load/>
     <FAQBusiness client:load/>
+	<FunctionSection client:load />
 </Layout>

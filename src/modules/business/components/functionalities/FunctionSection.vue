@@ -2,7 +2,7 @@
   <section class="bg-gray-900 py-16 flex flex-col items-center min-h-10 px-4 md:px-16" ref="section">
     <h1 class="text-4xl font-bold text-white mb-12 opacity-0 transition duration-1000 ease-out"
       :class="{ 'opacity-100 translate-x-0': isVisible }">
-      Cómo Funciona
+      Funciones
     </h1>
 
     <div class="flex flex-col md:flex-row items-start gap-16 max-w-7xl w-full">
@@ -48,7 +48,7 @@ export default {
     changeStep(){
       this.interval = setInterval(() => {
         this.next();
-      }, 5000);
+      }, 10000);
     },
     stopInterval(){
       clearInterval(this.interval);
@@ -78,25 +78,35 @@ export default {
 
     const steps = [
       {
-        title: "Paso 1",
-        description: "Envía un mensaje a nuestro número de WhatsApp.",
+        title: "Asistente Virtual con IA",
+        description:
+          "Interactúa con un bot inteligente que entiende y responde a tus necesidades.",
         img: "https://picsum.photos/id/230/600/300",
       },
       {
-        title: "Paso 2",
-        description: "Consulta horarios y agenda tu cita.",
+        title: "Consulta Horarios en Tiempo Real",
+        description:
+          "Gracias a la IA, obtén información actualizada al instante.",
         img: "https://picsum.photos/id/231/600/300",
       },
       {
-        title: "Paso 3",
-        description: "Recibe confirmación y recordatorios automáticos.",
+        title: "Agenda Citas de Manera Inteligente",
+        description:
+          "La IA sugiere horarios óptimos basados en tus preferencias y disponibilidad.",
         img: "https://picsum.photos/id/232/600/300",
       },
       {
-        title: "Paso 4",
-        description: "Recibe confirmación y recordatorios automáticos.",
+        title: "Respuestas Personalizadas",
+        description:
+          "La IA aprende de tus interacciones para ofrecerte una experiencia cada vez más personalizada.",
         img: "https://picsum.photos/id/233/600/300",
       },
+      {
+        title: "Historial de Consultas",
+        description:
+        "Accede a un registro detallado de tus consultas y recomendaciones.",
+        img: "https://picsum.photos/id/234/600/300",
+      }
     ];
 
     return {

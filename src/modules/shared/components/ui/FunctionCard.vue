@@ -1,13 +1,15 @@
 <template>
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl h-full max-w-sm" v-show="isVisible" >
+    <div class="bg-[#11113A] p-5 rounded-lg shadow-lg hover:shadow-xl flex flex-col items-center gap-2
+      max-h-full"
+    v-show="isVisible" > 
       <img :src="image" alt="Function Image" class="rounded w-full" />
       <h2 class="text-xl font-semibold text-white mb-2">{{ title }}</h2>
-      <p class="text-gray-400 w-full h-full">
+      <p class="text-white content-center text-center max-h-44 min-h-20 max-w-sm" >
         {{ description }}
       </p>
     </div>
   </template>
-  
+
 <script>
   export default {
     name: "FunctionCard",
