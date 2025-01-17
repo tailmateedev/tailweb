@@ -5,20 +5,25 @@
       Funciones
     </h1>
 
-    <div class="flex flex-col md:flex-row items-start gap-16 max-w-7xl w-full">
-      <div class="flex-1 space-y-6">
+    <div
+      class="flex flex-col md:flex-row max-sm:gap-4 divide-opacity-40 items-center gap-12 max-w-7xl justify-center w-full">
+      <div class="flex-1 flex flex-col gap-6 min-md:space-y-0 w-full">
         <div v-for="(step, index) in steps" :key="index"
           class="bg-gray-800 shadow-md p-6 rounded-lg opacity-0 transition duration-1000 ease-out cursor-pointer"
-          :style="{ transitionDelay: `${0.1}s` }" :class="{ 'opacity-100 translate-x-0': isVisible , 'bg-green-500':  index == idStep }"
+          :style="{ transitionDelay: `${0.1}s` }"
+          :class="{ 'opacity-100 translate-x-0': isVisible, 'bg-green-500 ': index == idStep, 'max-md:hidden': index != idStep }"
           @click.prevent="select" :id="index">
-            <h2 class="text-lg font-semibold text-white" :id="index">{{ step.title }}</h2>
-            <p class="text-gray-300" :id="index">{{ step.description }}</p>
+          <h2 class="text-lg font-semibold text-white" :id="index">{{ step.title }}</h2>
+          <p class="text-gray-200" :id="index">{{ step.description }}</p>
+        </div>
+        <div class="hidden max-md:flex max-md:content-center max-md:justify-center max-md:items-center ">
+          <Slider :countElements="steps.length" :next="next" :prev="prev" :idCard="idStep" :select="select"
+            colorBg="#fff" colorFocus='bg-white' colorInactive='bg-gray-800' @keydown="checkSlide($event)"></Slider>
         </div>
       </div>
 
-      <div class="flex-1 opacity-0 translate-y-10 transition duration-1000 ease-out"
-        :class="{ 'opacity-100 translate-y-0': isVisible }"
-        :style="{ transitionDelay: `${ 0.3}s` }">
+      <div class="flex-1 opacity-0 transition duration-1000 ease-out"
+        :class="{ 'opacity-100 translate-y-0': isVisible }" :style="{ transitionDelay: `${0.3}s` }">
         <img :src="steps[idStep].img" alt="Illustration" class="rounded-lg shadow-lg w-full" />
       </div>
     </div>
@@ -27,40 +32,56 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import Slider from "@components/ui/Slider.vue";
 
 export default {
   name: "HowItWorksSection",
   mounted() {
     this.changeStep();
   },
-  methods:{
-    select(event){
-      this.stopInterval();
+  components:{
+    Slider
+  },
+  methods: {
+    select(event) {
       this.isActive = true;
-      this.idStep = event.target.id;
+      this.idStep = parseInt(event.target.id);
+      this.stopInterval();
     },
     next() {
       this.idStep++;
       if (this.idStep > this.steps.length - 1) {
         this.idStep = 0;
       }
+      this.stopInterval();
     },
-    changeStep(){
+    prev() {
+      this.idStep--;
+      if (this.idStep <0) {
+        this.idStep = this.steps.length - 1;
+      }
+      this.stopInterval();
+    },
+    changeStep() {
       this.interval = setInterval(() => {
         this.next();
       }, 10000);
     },
-    stopInterval(){
+    stopInterval() {
       clearInterval(this.interval);
       this.isActive = false;
       this.changeStep();
     }
+  }, data() {
+    const idStep = ref(0);
+    return {
+      idStep,
+    };
   },
   setup() {
     const section = ref(null);
     const isVisible = ref(false);
     const isActive = ref(false);
-    const idStep = ref(0);
 
     onMounted(() => {
       const observer = new IntersectionObserver(
@@ -104,7 +125,7 @@ export default {
       {
         title: "Historial de Consultas",
         description:
-        "Accede a un registro detallado de tus consultas y recomendaciones.",
+          "Accede a un registro detallado de tus consultas y recomendaciones.",
         img: "https://picsum.photos/id/234/600/300",
       }
     ];
@@ -113,8 +134,7 @@ export default {
       section,
       isVisible,
       steps,
-      idStep,
-      interval:null,
+      interval: null,
       isActive
     };
   },

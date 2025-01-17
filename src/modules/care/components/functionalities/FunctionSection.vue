@@ -9,7 +9,7 @@
       </template>
     </div>
     <Slider :countElements="getQuantityElements" :next="next" :prev="prev" :idCard="idCard" :select="select"
-      @keydown="checkSlide($event)"></Slider>
+      :colorBg="'#11113A'" colorFocus='bg-black' colorInactive='bg-gray-400' @keydown="checkSlide($event)"></Slider>
   </section>
 </template>
 
