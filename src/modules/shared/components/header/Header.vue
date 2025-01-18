@@ -87,7 +87,6 @@ export default {
     const isOpen = ref(false);
 
     const menuItems = [
-      { id: 1, label: "Contact", href: "/contact", references: "contact" },
     ];
 
     menuItems.push({ id: menuItems.length + 1, label: "Home", href: "/", references: "home" });
