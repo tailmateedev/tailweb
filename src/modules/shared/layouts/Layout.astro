@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@components/header/Header.vue';
 import Footer from '@components/footer/Footer.vue';
+import Modal from '@components/modal/Modal.vue';
 import '../style/main.css'
 import '../style/view-transition.css'
 
@@ -26,6 +27,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header client:load/>
+		<Modal client:load/>
 		<slot />
 		<Footer client:load/>
 	</body>
