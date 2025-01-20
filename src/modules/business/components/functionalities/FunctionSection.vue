@@ -18,7 +18,7 @@
         </div>
         <div class="hidden max-md:flex max-md:content-center max-md:justify-center max-md:items-center ">
           <Slider :countElements="steps.length" :next="next" :prev="prev" :idCard="idStep" :select="select"
-            colorBg="#fff" colorFocus='bg-white' colorInactive='bg-gray-800' @keydown="checkSlide($event)"></Slider>
+            :colorBg="'#ddd'" :colorFocus="'bg-white'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)"></Slider>
         </div>
       </div>
 

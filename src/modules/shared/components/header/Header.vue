@@ -2,9 +2,9 @@
   <nav class="bg-[#11113A]">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
-      <a href="/" class="flex items-left justify-left space-x-3 rtl:space-x-reverse">
-        <span class="self-center text-5xl font-bold whitespace-nowrap dark:text-white font-[Montserrat] text-left tracking-[-5px]">tailmatee</span>
-      </a>
+      <span class="flex items-left justify-left space-x-3 rtl:space-x-reverse">
+        <a href="/" class="self-center text-5xl font-bold whitespace-nowrap dark:text-white font-[Montserrat] text-left tracking-[-5px]">tailmatee</a>
+      </span>
 
       <a
         href="#"
@@ -88,9 +88,8 @@ export default {
 
     const menuItems = [
       { id: 1, label: "Contact", href: "/contact", references: "contact" },
+      { id: 2, label: "Home", href: "/", references: "home" }
     ];
-
-    menuItems.push({ id: menuItems.length + 1, label: "Home", href: "/", references: "home" });
 
     const toggleMenu = () => {
       isOpen.value = !isOpen.value;

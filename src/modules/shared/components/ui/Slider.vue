@@ -1,15 +1,15 @@
 <template lang="">
     <div>
         <div class="flex flex-row w-full">
-            <button class="border-solid focus:outline-none border-r-[23px] border-y-transparent border-y-[17px] border-l-0" \
-                @click.prevent="prev" :class="`border-r-[${colorBg}]`"></button>
+            <button class="border-solid focus:outline-none border-r-[23px] border-y-transparent border-y-[17px] border-l-0"
+                @click.prevent="prev" :class="` border-r-${colorBg} `"></button>
             <template  v-for="(element,index) in countElements" :key="index" >
                 <button @click.prevent="select" :id="index"
                 :class="`rounded-full size-5 mx-2 my-2 focus:outline-none ${idCard === index ? `${colorFocus}` : `${colorInactive}`}`">
                 </button>
             </template>
             <button class="border-solid focus:outline-none border-l-[23px] border-y-transparent border-y-[17px] border-r-0" 
-                @click.prevent="next" :class="`border-l-[${colorBg}]`"></button>
+                @click.prevent="next" :class="` border-l-${colorBg} `"></button>
         </div>
     </div>
 </template>
@@ -41,12 +41,12 @@ export default {
         colorBg:{
             type: String,
             required: true,
-            default: "#11113A"
+            default: "slate-700"
         },
         colorFocus:{
             type: String,
             required: true,
-            default: "#black"
+            default: "bg-black"
         },
         colorInactive:{
             type: String,
@@ -55,9 +55,12 @@ export default {
         }
     },
     setup(props) {
-        const { idCard } = toRefs(props);
+        const { idCard,colorBg, colorFocus, colorInactive } = toRefs(props);
         return {
-            idCard
+            idCard,
+            colorBg,
+            colorFocus,
+            colorInactive
         }
     }
 }

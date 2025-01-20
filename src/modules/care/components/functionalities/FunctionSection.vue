@@ -1,15 +1,15 @@
 <template>
   <section class="py-16 flex flex-col items-center gap-5 content-center">
     <h1 class="text-4xl font-bold text-black content-center">¿Cómo funciona?</h1>
-    <div class="gap-9 max-w-4xl px-4">
+    <div class="flex flex-row gap-9 max-w-4xl px-4">
       <template v-for="(card, index) in cards" :key="index" :image="card.image" :title="card.title"
         :description="card.description" :link="card.link">
         <FunctionCard :image="card.image" :title="card.title" :description="card.description" :link="card.link"
-          :is-visible="(index === idCard) ? true : false" />
+          :is-visible="true" :class="index === idCard ? '' : 'blur-sm'"/>
       </template>
     </div>
     <Slider :countElements="getQuantityElements" :next="next" :prev="prev" :idCard="idCard" :select="select"
-      :colorBg="'#11113A'" colorFocus='bg-black' colorInactive='bg-gray-400' @keydown="checkSlide($event)"></Slider>
+    :colorBg="'slate-600'" :colorFocus="'bg-black'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)"></Slider>
   </section>
 </template>
 
