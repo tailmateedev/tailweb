@@ -2,23 +2,25 @@
   <section class="bg-gray-900 py-16 flex flex-col items-center min-h-10 px-4 md:px-16" ref="section">
     <h1 class="text-4xl font-bold text-white mb-12 opacity-0 transition duration-1000 ease-out"
       :class="{ 'opacity-100 translate-x-0': isVisible }">
-      Funciones
+      ¿Cómo te ayuda TAILMATEE?
     </h1>
 
     <div
       class="flex flex-col md:flex-row max-sm:gap-4 divide-opacity-40 items-center gap-12 max-w-7xl justify-center w-full">
       <div class="flex-1 flex flex-col gap-6 min-md:space-y-0 w-full">
-        <div v-for="(step, index) in steps" :key="index"
-          class="bg-gray-800 shadow-md p-6 rounded-lg opacity-0 transition duration-1000 ease-out cursor-pointer"
-          :style="{ transitionDelay: `${0.1}s` }"
-          :class="{ 'opacity-100 translate-x-0': isVisible, 'bg-green-500 ': index == idStep, 'max-md:hidden': index != idStep }"
-          @click.prevent="select" :id="index">
-          <h2 class="text-lg font-semibold text-white" :id="index">{{ step.title }}</h2>
-          <p class="text-gray-200" :id="index">{{ step.description }}</p>
-        </div>
+        <template v-for="(step, index) in steps" :key="index">
+          <div v-show="index == idStep || index== idStep - 1 || index == idStep + 1" class="bg-gray-800 shadow-md p-6 rounded-lg opacity-0 transition duration-1000 ease-out cursor-pointer"
+            :style="{ transitionDelay: `${0.1}s` }"
+            :class="{ 'opacity-100 translate-x-0': isVisible, 'bg-green-500 ': index == idStep, 'max-md:hidden': index != idStep }"
+            @click.prevent="select(index)" :id="index">
+            <h2 class="text-lg font-semibold text-white">{{ step.title }}</h2>
+            <p class="text-gray-200">{{ step.description }}</p>
+          </div>
+        </template>
         <div class="hidden max-md:flex max-md:content-center max-md:justify-center max-md:items-center ">
           <Slider :countElements="steps.length" :next="next" :prev="prev" :idCard="idStep" :select="select"
-            :colorBg="'#ddd'" :colorFocus="'bg-white'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)"></Slider>
+            :colorBg="bgColorsArrow" :colorFocus="'bg-white'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)">
+          </Slider>
         </div>
       </div>
 
@@ -39,13 +41,13 @@ export default {
   mounted() {
     this.changeStep();
   },
-  components:{
+  components: {
     Slider
   },
   methods: {
-    select(event) {
+    select(id) {
       this.isActive = true;
-      this.idStep = parseInt(event.target.id);
+      this.idStep = id;
       this.stopInterval();
     },
     next() {
@@ -57,7 +59,7 @@ export default {
     },
     prev() {
       this.idStep--;
-      if (this.idStep <0) {
+      if (this.idStep < 0) {
         this.idStep = this.steps.length - 1;
       }
       this.stopInterval();
@@ -74,8 +76,10 @@ export default {
     }
   }, data() {
     const idStep = ref(0);
+    const bgColorsArrow={ bgRight: "border-r-white", bgLeft: "border-l-white" };
     return {
       idStep,
+      bgColorsArrow
     };
   },
   setup() {

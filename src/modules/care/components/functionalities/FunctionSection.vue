@@ -1,15 +1,14 @@
 <template>
   <section class="py-16 flex flex-col items-center gap-5 content-center">
-    <h1 class="text-4xl font-bold text-black content-center">¿Cómo funciona?</h1>
-    <div class="flex flex-row gap-9 max-w-4xl px-4">
+    <h1 class="text-4xl font-bold text-black content-center">Lorem ipsum dolor sit</h1>
+    <div class="flex flex-row md:max-w-6xl gap-9 px-4">
       <template v-for="(card, index) in cards" :key="index" :image="card.image" :title="card.title"
         :description="card.description" :link="card.link">
-        <FunctionCard :image="card.image" :title="card.title" :description="card.description" :link="card.link"
-          :is-visible="true" :class="index === idCard ? '' : 'blur-sm'"/>
+        <FunctionCard :image="card.image" :title="card.title" :description="card.description" :link="card.link" :is-visible="true" :class="index === idCard ? '' : 'blur-sm max-sm:hidden'"/>
       </template>
     </div>
     <Slider :countElements="getQuantityElements" :next="next" :prev="prev" :idCard="idCard" :select="select"
-    :colorBg="'slate-600'" :colorFocus="'bg-black'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)"></Slider>
+    :colorBg="bgColorsArrow" :colorFocus="'bg-black'" :colorInactive="'bg-gray-500'" @keydown="checkSlide($event)"></Slider>
   </section>
 </template>
 
@@ -30,9 +29,11 @@ export default {
     },
   }, data() {
     let idCard = ref(0);
+    const bgColorsArrow ={ bgRight: "border-r-slate-700", bgLeft: "border-l-slate-700" };
     return {
       idCard,
-      intervalId: null
+      intervalId: null,
+      bgColorsArrow
     }
   },
   mounted() {
@@ -53,9 +54,10 @@ export default {
         this.idCard = this.getQuantityElements-1;
       }
     },
-    select(event) {
+
+    select(id) {
+      this.idCard = id;
       this.stopChangeCard();
-      this.idCard = parseInt(event.target.id);
     },
     checkSlide(event) {
       if (event.keyCode === 39) {

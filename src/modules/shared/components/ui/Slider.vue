@@ -2,14 +2,14 @@
     <div>
         <div class="flex flex-row w-full">
             <button class="border-solid focus:outline-none border-r-[23px] border-y-transparent border-y-[17px] border-l-0"
-                @click.prevent="prev" :class="` border-r-${colorBg} `"></button>
+                @click.prevent="prev" :class="`${colorBg.bgRight}`"></button>
             <template  v-for="(element,index) in countElements" :key="index" >
-                <button @click.prevent="select" :id="index"
+                <button @click.prevent="select(index)" :id="index"
                 :class="`rounded-full size-5 mx-2 my-2 focus:outline-none ${idCard === index ? `${colorFocus}` : `${colorInactive}`}`">
                 </button>
             </template>
             <button class="border-solid focus:outline-none border-l-[23px] border-y-transparent border-y-[17px] border-r-0" 
-                @click.prevent="next" :class="` border-l-${colorBg} `"></button>
+                @click.prevent="next" :class="`${colorBg.bgLeft} `"></button>
         </div>
     </div>
 </template>
@@ -39,9 +39,9 @@ export default {
             required: true
         },
         colorBg:{
-            type: String,
+            type: Object,
             required: true,
-            default: "slate-700"
+            default: { bgRight: "border-r-[#11113A]", bgLeft: "border-l-[#11113A]" }
         },
         colorFocus:{
             type: String,
