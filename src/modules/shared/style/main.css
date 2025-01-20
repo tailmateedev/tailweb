@@ -1,0 +1,40 @@
+:root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        rgb(var(--accent-light)) 30%,
+        white 60%
+    );
+    --view-transition-duration: 5s;
+    --view-transition-timing-function: ease-in-out;
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+    animation-duration: var(--view-transition-duration);
+    animation-timing-function: var(--view-transition-timing-function);
+    }
+    
+}
+html {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+background: #1a2455; 
+/* background: rgb(5,10,48);
+background: rgb(26,36,85);
+background: radial-gradient(circle, rgba(26,36,85,1) 0%, rgba(233,157,34,1) 90%); */
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+}
+code {
+    font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+}
