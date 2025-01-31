@@ -54,10 +54,12 @@
 
     ]
 
+    import { fade, slide } from 'astro:transitions';
+
 ---
 
 <Layout title="Tailmatee">
-  <div class="flex flex-col md:flex-row h-auto md:h-screen w-screen overflow-hidden">
+  <div class="flex flex-col md:flex-row h-auto md:h-screen w-screen overflow-hidden" transition:animate={fade({ duration: '0.9s' })}>
 
     <div class="w-full md:w-1/2 flex flex-col items-center justify-center h-auto md:h-full p-6">
       <div class="text-white p-6 rounded w-full md:w-[80%] flex flex-col items-center">
