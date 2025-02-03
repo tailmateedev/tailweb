@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import LayoutMaintenance from '@layouts/LayoutMaintenance.astro';
 import MainSection from '@care/components/main/MainSection.astro';
 import FunctionSection from '@business/components/functionalities/FunctionSection.vue'
+import FAQBusiness from '@business/components/faq/FAQBusiness.vue'
 import ContactUs from "../modules/shared/components/ui/ContactUs.vue"
 import '../modules/shared/style/main.css'
 
@@ -15,11 +16,8 @@ const isMaintenance = false;
 	<Layout title="Tailmatee">
 		<MainSection />
 		<FunctionSection client:load />
+		<FAQBusiness client:load/>
 		<ContactUs client:load/>
-		<!-- <Hearo /> -->
-		<!-- <Main /> -->
-		<!-- <SectionFunctions client:load /> -->
-		<!-- <Commitment /> -->
 	</Layout>
 
 )}
